@@ -1,0 +1,53 @@
+ID,firstName,lastName,dateOfBirth,gender,email,hireDate,department_ID,role_ID
+1001,Anh,Huynh,2002-10-09,Female,anhuynh@abeam.com,2025-01-01,10,1
+1002,Admin,User,1990-01-01,Other,admin@abeam.com,2025-01-01,10,7
+1003,Viewer,User,1985-06-15,Other,viewer@abeam.com,2025-01-01,11,8
+1004,Binh,Vo,2004-05-24,Male,binhvo@abeam.com,2025-01-01,10,1
+1005,Hoang,Chau,2003-11-23,Female,hoangchau@abeam.com,2025-01-01,10,1
+1006,Nhan,Tran,2002-05-24,Male,nhantran@abeam.com,2025-01-01,10,1
+1007,BB,XY,2005-11-24,Female,huyen@abeam.com,2025-01-01,12,6
+1008,Trang,Vu,1989-04-04,Female,trangv@abeam.com,2025-01-01,13,3
+1009,BB,XY,1988-02-02,Other,admintest@abeam.com,2025-01-01,11,4
+1010,BB,XY,1980-10-10,Other,adminqqqq@abeam.com,2025-01-01,12,5
+1011,BB,XY,1981-01-01,Other,adminno@abeam.com,2025-01-01,12,5
+1012,Trang,Vu,1987-07-07,Female,superadmin@abeam.com,2025-01-01,13,5
+1015,Thiên,Bùi,1992-07-29,Male,thienbui@abeam.com,2025-01-01,14,1
+1016,Phú Thiện,Nguyễn,2000-02-07,Male,thiennguyen@abeam.com,2025-01-01,10,1
+1017,Quốc Huy,Lê,2000-11-10,Male,huyle@abeam.com,2025-01-01,12,1
+1018,Anh Tuấn,Nguyễn,2001-04-15,Male,tuannguyen@abeam.com,2025-01-01,13,1
+1019,Đức Huy,Hà,1993-10-14,Male,huyha@abeam.com,2025-01-01,11,1
+1020,Trung Hiếu,Võ,2001-03-03,Male,hiuovotruong@abeam.com,2025-01-01,10,1
+1021,Vũ Long,Nguyễn,1997-11-28,Male,longnguyenvu@abeam.com,2025-01-01,13,1
+1022,Hoàng Thủy,Lưu,2001-05-14,Female,thuyluu@abeam.com,2025-01-01,15,1
+1023,Phúc Hào,Nguyễn,1992-04-25,Male,haonguyen@abeam.com,2025-01-01,14,1
+1024,Minh Thiện,Phạm,1985-07-20,Male,thienpham@abeam.com,2025-01-01,12,2
+1025,Duy Minh,Nguyễn,1996-01-24,Male,minhnguyen@abeam.com,2025-01-01,11,1
+1026,Thiên Phú,Huỳnh,2003-06-06,Male,phuhuynh@abeam.com,2025-01-01,14,6
+1027,Bảo Phúc,Đặng,1997-09-28,Male,phucdang@abeam.com,2025-01-01,10,1
+1028,Ngọc Thành,Hồ,2002-01-06,Female,thanhho@abeam.com,2025-01-01,13,1
+1029,Cao Sơn,Nguyễn,2000-11-08,Male,sonnguyen@abeam.com,2025-01-01,12,1
+1030,Đức Nam,Nguyễn,2001-02-06,Male,namnguyen@abeam.com,2025-01-01,14,1
+1031,Quốc Bảo,Phạm,2002-01-11,Male,baopham@abeam.com,2025-01-01,11,6
+1032,Tuấn Hùng,Nguyễn,2006-05-30,Male,hungnguyen@abeam.com,2025-01-01,13,6
+1033,Viết Tuấn,Trần,2002-01-03,Male,tuantranviet@abeam.com,2025-01-01,15,6
+1034,Anh Quân,Thân,2000-06-28,Male,quanthananh@abeam.com,2025-01-01,10,6
+1035,Hữu Hùng,Trần,2006-01-17,Male,hungtran@abeam.com,2025-01-01,11,6
+1036,Minh Hoàng,Đậu,1997-08-29,Male,hoangdau@abeam.com,2025-01-01,12,1
+1037,Hữu Chương,Lê,2001-02-06,Male,chuongle@abeam.com,2025-01-01,10,1
+1038,Như Ngọc,Nguyễn,2001-10-08,Female,ngocnguyenthinh@abeam.com,2025-01-01,13,6
+1039,Như Ngọc,Nguyễn,2003-02-22,Female,ngocnguyennb@abeam.com,2025-01-01,14,6
+1040,Hồ Sang,Trần,1990-01-10,Male,sangtran@abeam.com,2025-01-01,11,2
+1041,Văn Thịnh,Nguyễn,1985-09-10,Male,thinhnguyen@abeam.com,2025-01-01,12,2
+1042,Thành Tây,Ngô,1999-08-03,Male,tayngo@abeam.com,2025-01-01,13,1
+1043,Quang Hòa,Lê,1987-08-03,Male,hoalequang@abeam.com,2025-01-01,12,2
+1044,Phương Uyên,Đặng Trần,2002-10-18,Female,uyenphuong@abeam.com,2025-01-01,14,1
+1045,Quý,A,2002-08-16,Male,quya@abeam.com,2025-01-01,15,6
+1046,Trường Duy,Nguyễn,2000-09-05,Male,duynguyen@abeam.com,2025-01-01,13,1
+1047,Hiền Nhi,Trần Thị,2003-03-29,Female,nhihien@abeam.com,2025-01-01,14,6
+1048,Thanh Duyên,Hồ Hoàng,1992-07-28,Female,duyenduong@abeam.com,2025-01-01,12,1
+1049,My Sa,Đỗ Phạm,2003-04-06,Female,sado@abeam.com,2025-01-01,11,6
+1050,Trí,Huỳnh,1991-11-19,Male,trihuynh@abeam.com,2025-01-01,10,2
+1051,Thùy Linh,Nguyễn,1991-06-16,Female,linhnguyen@abeam.com,2025-01-01,13,2
+1052,Việt,Đoàn,2020-05-30,Male,vietdoan@abeam.com,2025-01-01,11,5
+1053,Bá Trinh,Huỳnh,2000-01-31,Male,trinhhuynh@abeam.com,2025-01-01,15,3
+1054,Quốc Hưng,Nguyễn,2001-06-19,Male,hungnguyenquoc@abeam.com,2025-01-01,14,1

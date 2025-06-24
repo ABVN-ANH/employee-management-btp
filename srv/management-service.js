@@ -1,0 +1,76 @@
+const cds = require('@sap/cds');
+
+module.exports = cds.service.impl(async function () {
+    const {Employees, Roles} = this.entities;
+
+    this.on('READ', Employees, async (req, next) => {
+        const employees = await next();
+
+        if (! employees || req.query.SELECT.count) {
+            return employees;
+        }
+
+        const employeeList = Array.isArray(employees) ? employees : [employees];
+
+        await Promise.all(employeeList.map(async (emp) => {
+            const salary = await calculateSalary(req, emp.role_ID, emp.hireDate);
+            if (salary !== null) 
+                emp.salary = salary;
+            
+        }));
+
+        return employees;
+    });
+
+    this.on('calculateEmployeeSalary', async (req) => {
+        const {ID: employeeId} = req.data;
+
+        if (!employeeId) {
+            return req.error(400, 'Please provide an employee ID.');
+        }
+
+        const employee = await cds.transaction(req).run(SELECT.one.from(Employees).columns('*').where({ID: employeeId}));
+
+        if (! employee) {
+            return req.error(404, `Employee with ID ${employeeId} not found.`);
+        }
+
+        const salary = await calculateSalary(req, employee.role_ID, employee.hireDate);
+
+        if (salary === null) {
+            return req.error(400, `Cannot calculate salary for employee with ID ${employeeId}.`);
+        }
+
+        return salary;
+    });
+
+
+// Calculate Salary    
+    async function calculateSalary(req, roleId, hireDate) {
+        if (! roleId || ! hireDate) 
+            return null;
+        
+
+        const role = await cds.transaction(req).run(SELECT.one.from(Roles).where({ID: roleId}));
+
+        if (! role) 
+            return null;
+        
+
+        const hire = new Date(hireDate);
+        const now = new Date();
+
+        let years = now.getFullYear() - hire.getFullYear();
+        const m = now.getMonth() - hire.getMonth();
+        const d = now.getDate() - hire.getDate();
+
+        if (m < 0 || (m === 0 && d < 0)) {
+            years--;
+        }
+
+        years = Math.max(0, years);
+        const bonus = years * 1000;
+
+        return parseFloat(role.baseSalary) + bonus;
+    }
+});
