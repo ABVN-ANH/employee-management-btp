@@ -1,0 +1,9 @@
+ID,name,baseSalary
+1,JuniorSpecialist,10000.00
+2,Specialist,20000.00
+3,SeniorSpecialist,30000.00
+4,AssociateExpert,40000.00
+5,Expert,50000.00
+6,Intern,5000.00
+7,Admin,1000.00
+8,Viewer,1000.00

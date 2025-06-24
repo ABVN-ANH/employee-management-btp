@@ -1,0 +1,48 @@
+@server = http://localhost:4004/odata/v4/employee-management
+@admin = Authorization: Basic admin:
+@viewer = Authorization: Basic viewer:
+
+
+### ------------------------------------------------------------------------
+# Get all employees
+GET {{server}}/Employees
+# {{admin}}
+{{viewer}}
+
+### ------------------------------------------------------------------------
+# Get all department 
+GET {{server}}/Departments
+{{admin}}
+
+
+### 2. Admin can update employee information
+PATCH {{server}}/Employees('1001')
+{{admin}}
+# {{viewer}}
+Content-Type: application/json
+
+{
+  "lastName": "Huynh Nguyen Lan"
+}
+
+
+### 3. Admin can delete employee information
+DELETE {{server}}/Employees('1009')
+{{admin}}
+
+### 4. Admin can create new employee
+POST {{server}}/Employees
+Authorization: Basic admin:
+Content-Type: application/json
+
+{
+      "ID": "1056",
+      "firstName": "Test",
+      "lastName": "Post",
+      "dateOfBirth": "2002-10-09",
+      "gender": "Female",
+      "email": "testpost@abeam.com",
+      "hireDate": "2022-01-01",
+      "department_ID": "10",
+      "role_ID": "2"
+}
