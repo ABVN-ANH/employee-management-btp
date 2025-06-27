@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <VBox class="sapUiContentPadding">
+        <Title text="{i18n>employeeListTitle}" level="H2" class="sapUiSmallMarginBottom"/>
+
+        <HBox class="sapUiSmallMarginBottom">
+            <Label text="{i18n>dept}" class="sapUiSmallMarginEnd sapUiMediumMarginTop"/>
+            <ComboBox id="departmentFilter" selectedKey="{employee>/department_ID}"  showClearIcon="true" width="15rem" items="{ path: '/Departments', templateShareable: false }" selectionChange="onFilterChange">
+                <core:Item key="{ID}" text="{name}" />
+            </ComboBox>
+
+            <Label text="{i18n>level}" class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiMediumMarginTop"/>
+            <ComboBox id="levelFilter" selectedKey="{employee>/role_ID}" showClearIcon="true" width="15rem" items="{ path: '/Roles', templateShareable: false }" selectionChange="onFilterChange">
+                <core:Item key="{ID}" text="{name}" />
+            </ComboBox>
+        </HBox>
+
+        <Table id="employeeTable" items="{ path: '/Employees', sorter: { path: 'firstName', descending: false }, parameters: { $expand: 'department,role'}, groupHeaderFactory: '.createGroupHeader' }" class="sapUiSmallMarginTop">
+            <columns>
+                <Column width="auto">
+                    <Text text="{i18n>dept}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>name}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>email}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>level}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>gender}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>dob}"/>
+                </Column>
+                <Column width="auto">
+                    <Text text="{i18n>wfrom}"/>
+                </Column>
+                <Column width="4rem">
+                    <Text text=""/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle" type="Active" press="handleEmployeeDetailsPress">
+                    <cells>
+                        <Text text="{department/name}"/>
+                        <Text text="{firstName} {lastName}"/>
+                        <Link text="{email}" href="mailto:{email}"/>
+                        <ObjectStatus text="{role/name}" inverted="true" state="{path: 'role/name', formatter: '.formatLevelState'}" />
+                        <Text text="{gender}"/>
+                        <Text text="{dateOfBirth}"/>
+                        <Text text="{hireDate}"/>
+                        <Button icon="sap-icon://delete" type="Transparent" tooltip="{i18n>deleteEmployeeTooltip}" press="handleDeleteEmployeePress" class="sapUiTinyMarginBegin"/>
+                        <Button icon="sap-icon://navigation-right-arrow" type="Transparent" tooltip="{i18n>viewDetailsTooltip}" press="handleEmployeeDetailsPress" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </VBox>
+</core:FragmentDefinition>
