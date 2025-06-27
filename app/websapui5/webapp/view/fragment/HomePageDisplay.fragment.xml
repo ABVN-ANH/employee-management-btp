@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormDisplay" editable="false">
+			<f:toolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>subtitle}"/>
+					<ToolbarSpacer/>
+					<Button text="Edit" type="Emphasized" press=".handleEditEmployeePress"/>
+				</OverflowToolbar>
+			</f:toolbar>
+			<!-- <f:title>
+				<core:Title text="{i18n>subtitle}" />
+
+			</f:title> -->
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>name}">
+							<f:fields>
+								<Text text="{firstName} {lastName}" id="nameText" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>gender}">
+							<f:fields>
+								<Text text="{gender}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>dept}">
+							<f:fields>
+								<Text text="{department/name}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>level}">
+							<f:fields>
+								<Text text="{role/name}" id="txtlevel" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>dob}">
+							<f:fields>
+								<Text text="{dateOfBirth}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>wfrom}">
+							<f:fields>
+								<Text text="{hireDate}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>email}">
+							<f:fields>
+								<Text text="{email}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>salary}">
+							<f:fields>
+								<Text text="{salary}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<Button text="{i18n>backToList}" press="handleBackToListPress" type="Back" class="sapUiSmallMarginTop"/>
+	</VBox>
+</core:FragmentDefinition>

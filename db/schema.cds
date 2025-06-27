@@ -2,19 +2,11 @@ using {managed} from '@sap/cds/common';
 
 namespace btp;
 
-type Name   : String enum {
-    Intern           @title: 'Intern';
-    JuniorSpecialist @title: 'Junior Specialist';
-    Specialist       @title: 'Specialist';
-    SeniorSpecialist @title: 'Senior Specialist';
-    AssociateExpert  @title: 'Associate Expert';
-    Expert           @title: 'Expert';
-}
 
 // Role master table
 entity Roles {
     key ID         : UUID;
-        name       : Name            @mandatory  @unique  @title: 'Role Name';
+        name       : String           @mandatory  @unique  @title: 'Role Name';
         baseSalary : Decimal(15, 2)  @mandatory  @title: 'Base Salary';
 }
 

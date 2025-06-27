@@ -4,6 +4,10 @@ module.exports = cds.service.impl(async function () {
     const {Employees, Roles} = this.entities;
 
     this.on('READ', Employees, async (req, next) => {
+        const user = req.user ?? cds.User.default;
+
+        console.log('ᓚᘏᗢ - User Info:', user);
+
         const employees = await next();
 
         if (! employees || req.query.SELECT.count) {
@@ -17,18 +21,19 @@ module.exports = cds.service.impl(async function () {
             if (salary !== null) 
                 emp.salary = salary;
             
+
         }));
 
         return employees;
     });
 
     this.on('calculateEmployeeSalary', async (req) => {
-        const {ID: employeeId} = req.data;
+        const {ID: employeeId} = req.data.ID;
 
         if (!employeeId) {
             return req.error(400, 'Please provide an employee ID.');
         }
-
+        // const emp = await SELECT.one.from(Employees).where({ ID: employeeId });
         const employee = await cds.transaction(req).run(SELECT.one.from(Employees).columns('*').where({ID: employeeId}));
 
         if (! employee) {
@@ -44,8 +49,7 @@ module.exports = cds.service.impl(async function () {
         return salary;
     });
 
-
-// Calculate Salary    
+    // Calculate Salary
     async function calculateSalary(req, roleId, hireDate) {
         if (! roleId || ! hireDate) 
             return null;
