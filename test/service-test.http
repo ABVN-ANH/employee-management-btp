@@ -6,12 +6,17 @@
 ### ------------------------------------------------------------------------
 # Get all employees
 GET {{server}}/Employees
-# {{admin}}
-{{viewer}}
+{{admin}}
+# {{viewer}}
+
+### ------------------------------------------------------------------------
+# Get all employees
+GET {{server}}/Employees?$expand=role&$filter=role_ID eq 'D-10'
+{{admin}}
 
 ### ------------------------------------------------------------------------
 # Get all department 
-GET {{server}}/Departments
+GET {{server}}/Departments('D-10')
 {{admin}}
 
 
