@@ -28,7 +28,7 @@ module.exports = cds.service.impl(async function () {
     });
 
     this.on('calculateEmployeeSalary', async (req) => {
-        const {ID: employeeId} = req.data.ID;
+        const employeeId = req.data.ID;
 
         if (!employeeId) {
             return req.error(400, 'Please provide an employee ID.');
@@ -64,14 +64,14 @@ module.exports = cds.service.impl(async function () {
         const hire = new Date(hireDate);
         const now = new Date();
 
+        // Tính số năm làm việc, chỉ tính tròn năm (không tính tháng/ngày lẻ)
         let years = now.getFullYear() - hire.getFullYear();
-        const m = now.getMonth() - hire.getMonth();
-        const d = now.getDate() - hire.getDate();
-
-        if (m < 0 || (m === 0 && d < 0)) {
+        if (
+            now.getMonth() < hire.getMonth() ||
+            (now.getMonth() === hire.getMonth() && now.getDate() < hire.getDate())
+        ) {
             years--;
         }
-
         years = Math.max(0, years);
         const bonus = years * 1000;
 

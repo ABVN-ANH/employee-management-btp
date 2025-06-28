@@ -1,27 +1,20 @@
-<core:FragmentDefinition xmlns="sap.m"
-	xmlns:l="sap.ui.layout"
-	xmlns:f="sap.ui.layout.form"
-	xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
 	<VBox class="sapUiSmallMargin">
 		<f:Form id="FormDisplay" editable="false">
 			<f:toolbar>
 				<OverflowToolbar>
 					<Title text="{i18n>subtitle}"/>
 					<ToolbarSpacer/>
-					<Button text="Edit" type="Emphasized" press=".handleEditEmployeePress"/>
+					<Button text="Edit" type="Emphasized" press=".handleEditEmployeePress" visible="{= ${app>/userRole} === 'Admin' }"/>
 				</OverflowToolbar>
 			</f:toolbar>
-			<!-- <f:title>
-				<core:Title text="{i18n>subtitle}" />
-
-			</f:title> -->
 			<f:layout>
 				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
 			</f:layout>
 			<f:formContainers>
 				<f:FormContainer>
 					<f:formElements>
-						<f:FormElement label="{i18n>name}">
+						<f:FormElement label="{i18n>fullname}">
 							<f:fields>
 								<Text text="{firstName} {lastName}" id="nameText" />
 							</f:fields>
@@ -61,15 +54,25 @@
 								<Text text="{email}" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="{i18n>salary}">
+						<f:FormElement label="{i18n>bsalary}">
 							<f:fields>
-								<Text text="{salary}" />
+								<ObjectNumber number="{role/baseSalary}" unit="USD"/>
 							</f:fields>
 						</f:FormElement>
+						<f:FormElement label="{i18n>csalary}" visible="{view>/calculatedSalaryVisible}">
+							<f:fields>
+								<ObjectNumber id="calculatedSalaryText" number="{view>/calculatedSalary}" unit="USD"/>
+							</f:fields>
+						</f:FormElement>
+
 					</f:formElements>
 				</f:FormContainer>
 			</f:formContainers>
 		</f:Form>
-		<Button text="{i18n>backToList}" press="handleBackToListPress" type="Back" class="sapUiSmallMarginTop"/>
+		<OverflowToolbar class="sapUiSmallMarginTop">
+			<Button text="{i18n>backToList}" press="handleBackToListPress" type="Back" />
+			<ToolbarSpacer/>
+			<Button text="{i18n>calculateSalary}" icon="sap-icon://money-bills" visible="{= ${app>/userRole} === 'Admin' }" press=".handleCalculateSalary" />
+		</OverflowToolbar>
 	</VBox>
 </core:FragmentDefinition>

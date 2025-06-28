@@ -26,8 +26,7 @@
     "undeploy": "cf undeploy employee-management-btp --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-websapui55": "cds watch --open websapui55/webapp/index.html?sap-ui-xx-viewCache=false"
+    "auth": "cds bind --exec -- npm start --prefix app/router"
   },
   "cds": {
     "requires": {
