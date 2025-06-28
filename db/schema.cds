@@ -34,8 +34,11 @@ entity Employees : managed {
             gender      : Gender                          @title: 'Gender';
             email       : String(255)                     @mandatory  @assert.pattern: '^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$';
             hireDate    : Date                            @title: 'Hire Date';
-    virtual salary      : Decimal(15, 2)                  @readonly   @title         : 'Salary';
+    virtual salary      : Decimal(15, 2)                  @title         : 'Salary';
             // Relationships: One-to-one associations
             department  : Association to one Departments  @mandatory  @title         : 'Department';
             role        : Association to one Roles        @mandatory  @title         : 'Role';
 }
+
+
+function calculateEmployeeSalary(ID : UUID) returns Decimal(15, 2);

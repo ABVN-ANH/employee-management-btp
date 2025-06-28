@@ -17,20 +17,20 @@
             <f:formContainers>
                 <f:FormContainer>
                     <f:formElements>
-                        <f:FormElement label="{i18n>name}">
+                        <f:FormElement label="{i18n>fname}">
                             <f:fields>
-                                <Input id="fname" placeholder="Enter First Name" value="{firstName}"/>
+                                <Input id="fname" placeholder="Enter First Name" value="{newEmployeeModel>firstName}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>name}">
+                        <f:FormElement label="{i18n>lname}">
                             <f:fields>
-                                <Input id="lname" placeholder="Enter  Name" value="{lastName}"/>
+                                <Input id="lname" placeholder="Enter Last Name" value="{newEmployeeModel>lastName}"/>
                             </f:fields>
                         </f:FormElement>
 
                         <f:FormElement label="{i18n>gender}">
                             <f:fields>
-                                <Select id="Gendercr" selectedKey="{gender}">
+                                <Select id="Gendercr" selectedKey="{newEmployeeModel>gender}">
                                     <items>
                                         <core:Item key="Male" text="Male" />
                                         <core:Item key="Female" text="Female" />
@@ -42,7 +42,7 @@
 
                         <f:FormElement label="{i18n>dept}">
                             <f:fields>
-                                <Select id="dept2" selectedKey="{department_ID}" items="{  path: '/Departments', templateShareable: false}">
+                                <Select id="dept2" selectedKey="{newEmployeeModel>department/ID}" items="{  path: '/Departments', templateShareable: false}">
                                     <items>
                                         <core:Item key="{ID}" text="{name}" />
                                     </items>
@@ -52,7 +52,7 @@
 
                         <f:FormElement label="{i18n>level}">
                             <f:fields>
-                                <Select id="level2" selectedKey="{role_ID}" items="{ path: '/Roles', templateShareable: false}">
+                                <Select id="level2" selectedKey="{newEmployeeModel>role/ID}" items="{ path: '/Roles', templateShareable: false}">
                                     <items>
                                         <core:Item key="{ID}" text="{name}" />
                                     </items>
@@ -71,15 +71,15 @@
                         </f:FormElement>
 
                         <f:FormElement label="{i18n>dob}">
-                            <DatePicker id="dobPicker2" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" value="{dateOfBirth}"/>
+                            <DatePicker id="dobPicker2" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" value="{newEmployeeModel>dateOfBirth}"/>
                         </f:FormElement>
 
                         <f:FormElement label="{i18n>wfrom}">
-                            <DatePicker id="wfromPicker2" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" value="{hireDate}"/>
+                            <DatePicker id="wfromPicker2" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" value="{newEmployeeModel>hireDate}"/>
                         </f:FormElement>
 
                         <f:FormElement label="{i18n>email}">
-                            <Input id="emailInput2" type="Email" placeholder="Enter Email" valueStateText="Validate email pattern" showValueStateMessage="true" liveChange="onEmailLiveChange" value="{mail}"/>
+                            <Input id="emailInput2" type="Email" placeholder="Enter Email" valueStateText="Validate email pattern" showValueStateMessage="true" liveChange="onEmailLiveChange" value="{newEmployeeModel>email}"/>
                         </f:FormElement>
                     </f:formElements>
                 </f:FormContainer>

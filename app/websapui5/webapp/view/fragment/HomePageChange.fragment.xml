@@ -10,8 +10,8 @@
 				<OverflowToolbar>
 					<Title text="{i18n>subtitle}"/>
 					<ToolbarSpacer/>
-					<Button text="Save" type="Emphasized" visible="true" press=".handleSaveEmployeePress"/>
-					<Button text="Cancel" type="Emphasized" visible="true" press=".handleCancelPress"/>
+					<Button text="Save" type="Emphasized" visible="{= ${app>/userRole} === 'Admin' }" press=".handleSaveEmployeePress"/>
+					<Button text="Cancel" type="Emphasized" visible="{= ${app>/userRole} === 'Admin' }" press=".handleCancelPress"/>
 				</OverflowToolbar>
 			</f:toolbar>
 			<f:layout>

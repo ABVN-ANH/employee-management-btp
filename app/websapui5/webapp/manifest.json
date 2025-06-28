@@ -50,6 +50,7 @@
               "sap.ui.core": {}
           }
       },
+      "flexEnabled": false,
       "contentDensities": {
           "compact": true,
           "cozy": true
@@ -67,7 +68,8 @@
               "settings": {
                   "operationMode": "Server",
                   "autoExpandSelect": true,
-                  "earlyRequests": true
+                  "earlyRequests": true,
+                  "odataVersion": "4.0"
               }
           }
       },

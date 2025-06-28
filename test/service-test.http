@@ -37,11 +37,11 @@ DELETE {{server}}/Employees('1009')
 
 ### 4. Admin can create new employee
 POST {{server}}/Employees
-Authorization: Basic admin:
+{{admin}}
 Content-Type: application/json
 
 {
-      "ID": "1056",
+      "ID": "E-1056",
       "firstName": "Test",
       "lastName": "Post",
       "dateOfBirth": "2002-10-09",

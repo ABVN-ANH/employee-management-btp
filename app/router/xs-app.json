@@ -7,5 +7,5 @@
       "csrfProtection": true
     }
   ],
-  "welcomeFile": "/websapui5"
+  "welcomeFile": "/websapui5/webapp/index.html"
 }
