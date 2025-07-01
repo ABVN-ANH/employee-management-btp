@@ -45,4 +45,10 @@ service EmployeeManagementService {
 
 
     function calculateEmployeeSalary(ID : UUID) returns Decimal(15, 2);
+
+    function userInfo()                         returns {
+        id    : String;
+        roles : array of String;
+        attr  : LargeString;
+    };
 }

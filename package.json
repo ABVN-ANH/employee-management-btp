@@ -75,10 +75,13 @@
         "auth": {
           "kind": "xsuaa"
         }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": "hana"
       }
     }
-  },
-  "sapux": [
-    "app/websapui55"
-  ]
+  }
 }

@@ -1,0 +1,93 @@
+<core:FragmentDefinition xmlns:macros="sap.fe.macros"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange" editable="true">
+			<f:toolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>subtitle}"/>
+					<ToolbarSpacer/>
+					<Button text="Save" type="Emphasized" visible="{= ${app>/userRole} === 'Admin' }" press=".handleSaveEmployeePress"/>
+					<Button text="Cancel" type="Emphasized" visible="{= ${app>/userRole} === 'Admin' }" press=".handleCancelPress"/>
+				</OverflowToolbar>
+			</f:toolbar>
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>name}">
+							<f:fields>
+								<Input id="fnamec" value="{firstName}" placeholder="Enter First Name" />
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>name}">
+							<f:fields>
+								<Input id="lnamec" value="{lastName}" placeholder="Enter Last Name" />
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>gender}">
+							<f:fields>
+								<Select id="Gender" selectedKey="{gender}">
+									<items>
+										<core:Item key="Male" text="Male" />
+										<core:Item key="Female" text="Female" />
+										<core:Item key="Other" text="Other" />
+									</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>dept}">
+							<f:fields>
+								<Select id="dept" selectedKey="{employee>/department_ID}" items="{ path: '/Departments',  templateShareable: false }">
+									<items>
+										<core:Item key="{ID}" text="{name}" />
+									</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>level}">
+							<f:fields>
+								<Select id="level" selectedKey="{employee>/role_ID}" items="{ path: '/Roles', templateShareable: false }">
+									<items>
+										<core:Item key="{ID}" text="{name}" />
+									</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>avatar}">
+							<l:VerticalLayout>
+								<Avatar id="avatar" displaySize="M" displayShape="Circle" tooltip="Click to upload avatar (picture)" badgeIcon="sap-icon://edit" press=".handleAvatarPress" />
+							</l:VerticalLayout>
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>dob}">
+							<DatePicker id="dobPicker" value="{dateOfBirth}" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" />
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>wfrom}">
+							<DatePicker id="wfromPicker" value="{hireDate}" valueFormat="dd MMMM, yyyy" displayFormat="dd MMMM, yyyy" />
+						</f:FormElement>
+
+						<f:FormElement label="{i18n>email}">
+							<Input id="emailInput" value="{email}" type="Email" placeholder="Enter Email" valueStateText="Validate email pattern" showValueStateMessage="true" liveChange="onEmailLiveChange" />
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

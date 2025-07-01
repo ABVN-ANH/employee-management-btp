@@ -1,0 +1,2 @@
+sap.ui.define(["websapui5/controller/BaseController"],function(t){"use strict";return t.extend("websapui5.controller.NotFound",{onInit:function(){var t,a;t=this.getRouter();a=t.getTarget("NotFound");a.attachDisplay(function(t){this._oData=t.getParameter("data")},this)},onNavBack:function(){if(this._oData&&this._oData.fromTarget){this.getRouter().getTargets().display(this._oData.fromTarget);delete this._oData.fromTarget;return}t.prototype.onNavBack.apply(this,arguments)}})});
+//# sourceMappingURL=NotFound.controller.js.map
