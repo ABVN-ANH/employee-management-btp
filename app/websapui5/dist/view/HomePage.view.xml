@@ -1,0 +1,42 @@
+<mvc:View controllerName="websapui5.controller.HomePage"
+    xmlns="sap.m"
+    xmlns:mdc="sap.ui.mdc"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" height="100%">
+    <Page id="page" class="sapUiContentPadding">
+        <headerContent>
+            <Bar>
+                <contentLeft>
+                    <tnt:ToolHeader id="shellLikeToolHeaderOnlyMandatoryControls" class="sapUiTinyMargin">
+                        <Image src="./image/abeamlogo.png" decorative="false" tooltip="Abeam Logo" width="30px" height="30px">
+                            <layoutData>
+                                <OverflowToolbarLayoutData priority="NeverOverflow"/>
+                            </layoutData>
+                        </Image>
+                        <Title text="{i18n>title}" wrapping="false">
+                            <layoutData>
+                                <OverflowToolbarLayoutData priority="Disappear"/>
+                            </layoutData>
+                        </Title>
+                    </tnt:ToolHeader>
+                </contentLeft>
+                <contentRight>
+                    <Button id = "create2" type="Emphasized" text="{i18n>input}" press="handleCreateEmployeePress" visible="{= String(${app>/userRole}) === 'Admin' }" />
+                    <Button id="view2" type="Emphasized" press="handleEmployeeListPress" text="{i18n>list}" visible="{= String(${app>/userRole}) === 'Admin' }"/>
+                </contentRight>
+            </Bar>
+        </headerContent>
+        <content>
+            <!-- For fragment -->
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button id="submit" text="{i18n>submit}" type="Emphasized" visible="{= ${view>isCreateMode} &amp;&amp; ${app>/userRole} === 'Admin' }" press="handleSubmitDialogPress"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+
+</mvc:View>

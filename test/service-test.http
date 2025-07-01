@@ -51,3 +51,7 @@ Content-Type: application/json
       "department_ID": "10",
       "role_ID": "2"
 }
+
+### 5. View user role
+GET {{server}}/userInfo
+{{admin}}
